@@ -1,0 +1,43 @@
+.btn_num{
+    height: 67px;
+    width: 90px;
+    margin: 2px;
+}
+.btn_img{
+    height: 60px;
+    width: 80px;
+    margin: 2px;
+}
+.prnt_btn{
+    height: 50px;
+}
+.input{
+    width: 70%;
+    height: 60px;
+}
+.section_calc{
+    height: 80%;
+    width: 40%;
+}
+@media only screen and (max-width: 919px) {
+    .btn_num{
+        height: 57px;
+        width: 70px;
+    }
+
+}
+@media only screen and (max-width: 762px) {
+    .btn_num {
+        height: 40px;
+        width: 44px;
+    }
+    .section_calc{
+        width: 80%;
+    }
+}
+/*@media only screen and (max-width: 543px) {*/
+/*        .btn_num{*/
+/*            height: 30px;*/
+/*            width: 27px;*/
+/*        }*/
+/*}*/
