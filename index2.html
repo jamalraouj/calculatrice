@@ -1,0 +1,97 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calc</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css ">
+    <link rel="stylesheet" href="bootstrap/font-awesome/css/font-awesome.css">
+    <!--    <link rel="stylesheet" href="./bootstrap static/font-awesome/css/font-awesome.min.css">-->
+</head>
+<body>
+
+<main class="container-fluid bg-dark vh-100 d-flex align-items-center ">
+    <section class=" container-fluid section_calc" >
+        <form class="form-control d-flex flex-column h-100 justify-content-center w-100">
+            <div class="d-flex flex-column align-items-center vh-100 justify-content-around" >
+                <div class="d-flex flex-column w-100  align-items-center">
+                    <!--                <input type="number" class="input text-secondary" id="val_result_top" value="0">-->
+                    <p class="text-secondary" id="val_result_top" value="0"></p>
+                    <input type="text" class="input" id="val_result" value="">
+                </div>
+                <p id="pp">adada</p>
+                <div class=" w-100 h-75">
+                    <div class=" h-100 d-flex flex-column justify-content-center align-items-center">
+                        <div>
+                            <input  class="btn_num  " type="button" value="%">
+                            <input  class="btn_num  " type="button" value="CE">
+                            <input  class="btn_num  " onclick="deleteNmbr(this.id)" id="deleteAll" type="button" value="C">
+                            <!--                        <button class="btn_num  " onclick="deleteNmbr(this.id)" id="deleteNum" ><img class="w-50" src="img/delete.png"></button>-->
+                            <!--                        <input  type="image" src="img/delete.png" class="btn_num bg-primary position-relative " >-->
+                            <img src="img/delete.png" onclick="deleteNmbr(this.id)" id="deleteNum" class="btn_num ">
+
+
+                        </div>
+                        <div>
+                            <input  class="btn_num  " type="button" value="x">
+                            <input  class="btn_num  " type="button" value="x">
+                            <input  class="btn_num  " type="button" value="x">
+                            <input  class="btn_num  " onclick="one_of_operations(this.id)" id="opt_division" type="button" value="➗">
+
+                        </div>
+                        <div class="">
+
+                            <!--                    <button class="btn_num  value="1v"></button>-->
+                            <input  class="btn_num" onclick="num(this.id)"id="n7"   type="button" value="7">
+                            <input  class="btn_num" onclick="num(this.id)"id="n8"   type="button" value="8">
+                            <input  class="btn_num" onclick="num(this.id)"id="n9"   type="button" value="9">
+                            <input  class="btn_num" onclick="one_of_operations(this.id)" id="opt_multiply" type="button" value="✖">
+
+
+                        </div>
+                        <div>
+                            <input  class="btn_num" onclick="num(this.id)"id="n4"   type="button" value="4">
+                            <input  class="btn_num" onclick="num(this.id)"id="n5"   type="button" value="5">
+                            <input  class="btn_num" onclick="num(this.id)"id="n6"   type="button" value="6">
+                            <input  class="btn_num" type="button" onclick="one_of_operations(this.id)" id="opt_minus" value="➖">
+
+                        </div>
+                        <div>
+                            <input  class="btn_num" onclick="num(this.id)"id="n1" value="1"  type="button">
+                            <input  class="btn_num" onclick="num(this.id)"id="n2"   type="button" value="2">
+                            <input  class="btn_num" onclick="num(this.id)"id="n3"   type="button" value="3">
+                            <input  class="btn_num" onclick="one_of_operations(this.id)"id="opt_plus" type="button" value="➕">
+
+                        </div>
+                        <div>
+
+                            <input  class="btn_num" onclick="num()" type="button" value="+/-">
+                            <input  class="btn_num" onclick="num(this.id)"id="n0"   type="button" value="0">
+                            <input  class="btn_num" onclick="num(this.id)" id="dot" type="button" value=".">
+                            <input  class="btn_num" onclick="one_of_operations(this.id)"id="opt_egal" type="button" value="=">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </section>
+</main>
+
+<script>
+
+    let g_number1= '';
+
+
+
+</script>
+
+</body>
+</html>
