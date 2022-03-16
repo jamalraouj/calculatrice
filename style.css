@@ -19,6 +19,17 @@
     height: 80%;
     width: 40%;
 }
+.panrent_affiche{
+    width:30%;
+    height:70%;
+}
+
+.affichee{
+    border-radius:10px;
+    height:70px;
+}
+
+
 @media only screen and (max-width: 919px) {
     .btn_num{
         height: 57px;

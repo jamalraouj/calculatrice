@@ -20,15 +20,15 @@
     <main class="container-fluid bg-dark vh-100 d-flex align-items-center ">
     <section class=" container-fluid section_calc" >
         <form class="form-control d-flex flex-column h-100 justify-content-center w-100">
-            <div class="d-flex flex-column align-items-center vh-100 justify-content-around" >
-                <div class="d-flex flex-column w-100  align-items-center">
-<!--                <input type="number" class="input text-secondary" id="val_result_top" value="0">-->
-                <p class="text-secondary" id="val_result_top" value="0"></p>
-                <input type="text" class="input" id="val_result" value="">
-                </div>
+            <div class=" d-flex flex-column align-items-center vh-100 justify-content-around " >
 
-                <div class=" w-100 h-75">
-                    <div class=" h-100 d-flex flex-column justify-content-center align-items-center">
+
+                <div class=" panrent_affiche d-flex flex-column align-items-center justify-content-between ">
+                    <div class="affichee d-flex flex-column bg-white align-items-center w-50">
+                        <h2 class="text-secondary " id="var_top_result" value="0"></h2>
+                        <p id="val_result" class=""></p>
+                    </div>
+                    <div class="  d-flex flex-column justify-content-center align-items-center">
                     <div>
                         <input  class="btn_num  " type="button" value="%">
                         <input  class="btn_num  " type="button" value="CE">
@@ -43,39 +43,39 @@
                         <input  class="btn_num  " type="button" value="x">
                         <input  class="btn_num  " type="button" value="x">
                         <input  class="btn_num  " type="button" value="x">
-                        <input  class="btn_num  " onclick="one_of_operations(this.id)" id="opt_division" type="button" value="➗">
+                        <input  class="btn_num  operation"   id="opt_division" type="button" value="÷"><!--➗ -->
 
                     </div>
                 <div class="">
 
 <!--                    <button class="btn_num  value="1v"></button>-->
-                    <input  class="btn_num" onclick="num(this.id)"id="n7"   type="button" value="7">
-                    <input  class="btn_num" onclick="num(this.id)"id="n8"   type="button" value="8">
-                    <input  class="btn_num" onclick="num(this.id)"id="n9"   type="button" value="9">
-                    <input  class="btn_num" onclick="one_of_operations(this.id)" id="opt_multiply" type="button" value="✖">
+                    <input  class="btn_num number" onclick="num(this.id)"id="n7"   type="button" value="7">
+                    <input  class="btn_num number" onclick="num(this.id)"id="n8"   type="button" value="8">
+                    <input  class="btn_num number" onclick="num(this.id)"id="n9"   type="button" value="9">
+                    <input  class="btn_num operation"   id="opt_multiply" type="button" value="×"><!--✖ -->
 
 
                 </div>
                 <div>
-                    <input  class="btn_num" onclick="num(this.id)"id="n4"   type="button" value="4">
-                    <input  class="btn_num" onclick="num(this.id)"id="n5"   type="button" value="5">
-                    <input  class="btn_num" onclick="num(this.id)"id="n6"   type="button" value="6">
-                    <input  class="btn_num" type="button" onclick="one_of_operations(this.id)" id="opt_minus" value="➖">
+                    <input  class="btn_num number" onclick="num(this.id)"id="n4"   type="button" value="4">
+                    <input  class="btn_num number" onclick="num(this.id)"id="n5"   type="button" value="5">
+                    <input  class="btn_num number" onclick="num(this.id)"id="n6"   type="button" value="6">
+                    <input  class="btn_num operation" type="button"  id="opt_minus" value="-">
 
                </div>
                 <div>
-                    <input  class="btn_num" onclick="num(this.id)"id="n1" value="1"  type="button">
-                    <input  class="btn_num" onclick="num(this.id)"id="n2"   type="button" value="2">
-                    <input  class="btn_num" onclick="num(this.id)"id="n3"   type="button" value="3">
-                    <input  class="btn_num" onclick="one_of_operations(this.id)"id="opt_plus" type="button" value="➕">
+                    <input  class="btn_num number" onclick="num(this.id)"id="n1" value="1"  type="button">
+                    <input  class="btn_num number" onclick="num(this.id)"id="n2"   type="button" value="2">
+                    <input  class="btn_num number" onclick="num(this.id)"id="n3"   type="button" value="3">
+                    <input  class="btn_num operation"  id="opt_plus" type="button" value="+">
 
               </div>
                 <div>
 
                     <input  class="btn_num" onclick="num()" type="button" value="+/-">
-                    <input  class="btn_num" onclick="num(this.id)"id="n0"   type="button" value="0">
-                    <input  class="btn_num" onclick="num(this.id)" id="dot" type="button" value=".">
-                    <input  class="btn_num" onclick="one_of_operations(this.id)"id="opt_egal" type="button" value="=">
+                    <input  class="btn_num number" onclick="num(this.id)"id="n0"   type="button" value="0">
+                    <input  class="btn_num " onclick="num(this.id)" id="dot" type="button" value=".">
+                    <input  class="btn_num operation" id="opt_egal" type="button" value="=">
 
                 </div>
             </div>
@@ -87,7 +87,9 @@
     </main>
 <!--    <script src="script.js"></script>-->
 <script>
-
+    // debugger;
+    const numbers = document.querySelectorAll('.number');
+    const operations = document.querySelectorAll('.operation');
 
     let g_nmbr2 = '';
     let g_nmbr1 ='';
@@ -95,35 +97,31 @@
     let var_result =0;
     let var_top_result =0;
     let operation ='';
+    const value_top_res = document.getElementById('var_top_result');
+    const value_res = document.getElementById('val_result');
 
-    document.getElementById('val_result').value = fin_result;
-    function num(get_id){
 
+    value_res.innerText = fin_result;
+    numbers.forEach(button => button.addEventListener("click", function() {
 
-        let nmbr = document.getElementById(get_id).value;//get value from button
-
-        // if(g_nmbr2 != ''){
-        //     g_nmbr2 += nmbr;
-        // }else if(g_nmbr2 == ''){
-        //     g_nmbr2 = nmbr;
-        // }
-        g_nmbr2 += nmbr;
-
-        var rst = document.getElementById('val_result').value = g_nmbr2;//set the value to input
-
-        if(get_id == 'dot'){
-            document.getElementById('dot').style.visibility = "hidden";
-        }
-
+        if(value_res.innerText == '0'){
+            value_res.innerText = '';
     }
+        g_nmbr2 += button.value;
+        value_res.innerText = g_nmbr2;
+
+    }));
+
+    operations.forEach(button => button.addEventListener("click", (e) => one_of_operations(button.id)));
 
     function one_of_operations(get_id_opt){
-        document.getElementById('dot').style.visibility = "visible";
 
         if( (get_id_opt !== "opt_egal")){
             operation = get_id_opt;
-
+            value_top_res.innerText += g_nmbr2 + document.getElementById(get_id_opt).value ;
         }
+
+        document.getElementById('dot').style.visibility = "visible";
 
         if(g_nmbr1 == ''){
             g_nmbr1 = g_nmbr2;
@@ -137,7 +135,7 @@
                     if(g_nmbr2 != ''){
                         fin_result = parseFloat(g_nmbr1) + parseFloat(g_nmbr2);
                         fin_result = fin_result.toFixed(2);
-                        document.getElementById('val_result').value = fin_result;
+                        value_res.innerText = fin_result;
                         g_nmbr1 = fin_result;
                         g_nmbr2 = '';
                     }
@@ -148,7 +146,7 @@
             case 'opt_minus':{
                 if ((g_nmbr1 != '') && (g_nmbr2 != '')) {
                     fin_result = parseFloat(g_nmbr1) - parseFloat(g_nmbr2);
-                    document.getElementById('val_result').value = fin_result.toFixed(2);
+                    value_res.innerText = fin_result.toFixed(2);
                     g_nmbr1 = fin_result;
                     g_nmbr2 = '';
                 }
@@ -158,7 +156,7 @@
             case 'opt_multiply':{
                 if ((g_nmbr1 != '') && (g_nmbr2 != '')) {
                     fin_result = parseFloat(g_nmbr1) * parseFloat(g_nmbr2);
-                    document.getElementById('val_result').value = fin_result.toFixed(2);
+                    value_res.innerText = fin_result.toFixed(2);
                     g_nmbr1 = fin_result;
                     g_nmbr2 = '';
 
@@ -170,11 +168,11 @@
                 if ((g_nmbr1 != '') && (g_nmbr2 !='')) {
                     if(g_nmbr2 !=0){
                         fin_result = parseFloat(g_nmbr1) / parseFloat(g_nmbr2);
-                        document.getElementById('val_result').value = fin_result.toFixed(2);
+                        value_res.innerText = fin_result.toFixed(2);
                         g_nmbr1 = fin_result;
                         g_nmbr2 = '';
                     }else{
-                        document.getElementById('val_result').value = 'cannot divide by zero';
+                        value_res.innerText = 'cannot divide by zero';
                     }
 
 
@@ -188,6 +186,12 @@
             }
 
         }
+        if(get_id_opt === "opt_egal"){
+            value_top_res.innerText += '='+ fin_result ;
+        }
+        // if(get_id_opt === "opt_egal"){
+        //     value_top_res.innerText += '=' +fin_result;
+        // }
 
 
 
@@ -201,33 +205,82 @@
                 g_nmbr1 = '';
                 g_nmbr2 = '';
                 fin_result = '';
-                document.getElementById('val_result').value ='';
+                value_res.innerText =0;
                 break;
             }
             case 'deleteNum':{
                 let del_nbr ='';
-                let s = document.getElementById('val_result').value;
+                let s = value_res.innerText;
                 if(s === fin_result){
                     del_nbr = fin_result.slice(0 , -1);
-                    document.getElementById('val_result').value = del_nbr;
+                    value_res.innerText = del_nbr;
                     fin_result = del_nbr;
 
                     break;
                 }
                 del_nbr = g_nmbr2.slice(0 , -1);
                 g_nmbr2 = del_nbr;
-                document.getElementById('val_result').value = g_nmbr2;
+                value_res.innerText = g_nmbr2;
                 break;
 
             }
         }
     }
 
+    window.addEventListener("keydown", function (event) {
+        if (event.defaultPrevented) {
+            return; // Do nothing if the event was already processed
+        }
+        KEY=event.key.charCodeAt(0);
 
+        if(KEY >=48 && KEY <= 57 || KEY === 46){
+            KEY = String.fromCharCode(KEY);
+            g_nmbr2 += KEY;
+            value_res.innerText = g_nmbr2;
+
+        }
+        // alert(KEY);
+        switch (KEY) {
+
+            case 43:
+                // alert('plus');
+                one_of_operations('opt_plus');
+                break;
+            case 45:
+                one_of_operations('opt_minus');
+                break;
+            case 42:
+                one_of_operations('opt_multiply');
+                break;
+            case 47:
+                one_of_operations('opt_division');
+                break;
+            case 61:
+                one_of_operations('opt_egal');
+                break;
+            case 69:
+                one_of_operations('opt_egal');
+                break;
+            case 32:
+                one_of_operations('opt_egal');
+                break;
+
+            case 66:
+                deleteNmbr('deleteNum');
+                break;
+            case 68:
+                deleteNmbr('deleteAll');
+                break;
+
+            default:
+                return;
+        }
+
+        // Cancel the default action to avoid it being handled twice
+        event.preventDefault();
+    }, true);
 
 
 </script>
 </body>
 </html>
-
-
